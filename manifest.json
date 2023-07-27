@@ -1,17 +1,33 @@
 {
-  "manifest_version": 2,
-  "name": "My Extension",
+  "manifest_version": 3,
+  "name": "Can't stop the Quokkas!",
   "version": "1.0",
-  "description": "My Chrome Extension",
-  "browser_action": {
+  "action": {
+    "default_icon": {              
+      "16": "/images/NewQuokka48.png",  
+      "48": "/images/NewQuokka48.png"  
+    },
+    "default_title": "Click Me",   
     "default_popup": "index.html"
   },
+  "description": "My Chrome Extension",
   "content_scripts": [
     {
       "run_at": "document_idle",
+      "matches": ["https://www.google.com/*"],
+      "css": ["main.css"]
+    },
+    {
+      "run_at": "document_idle",
       "matches": ["https://www.youtube.com/*"],
-      "js": ["main.js"]
-    }
+      "js": ["./main.js"] 
+    } 
   ],
   "permissions": ["activeTab"]
 }
+
+
+//  "icons": {
+//     "16": "/images/NewQuokka48.png",
+//     "48": "/images/NewQuokka48.png"
+//   }
